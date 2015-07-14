@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angstrom to Bohr and Bohr to Angstrom conversion</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+  <div ng-controller="mycontroller">
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Angstrom to Bohr and Bohr to Angstrom conversion</h1>
+        <p class="lead">Converts all numbers. Preserves number of digits. Leaves everything else unchanged.</p>
+        <input ng-model="factor" ng-change="change()" type="text">
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Type or paste text block in Angstrom</h3>
+          <textarea ng-model="angstrom" ng-change="change()" rows="15" cols="60"></textarea>
+        </div>
+        <div class="col-md-6">
+          <h3>Result in Bohr</h3>
+          <pre>{{angstrom|convert : 1.0/factor}}</pre><br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Type or paste text block in Bohr</h3>
+          <textarea ng-model="bohr" ng-change="change()" rows="15" cols="60"></textarea>
+        </div>
+        <div class="col-md-6">
+          <h3>Result in Angstrom</h3>
+          <pre>{{bohr|convert : factor}}</pre><br>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
