@@ -24,28 +24,40 @@
 
       <div class="page-header">
         <h1>Angstrom to Bohr and Bohr to Angstrom conversion page</h1>
-        <p class="lead">Converts all numbers. Preserves number of digits. Leaves everything else unchanged.</p>
-        <input ng-model="factor" ng-change="change()" type="text">
+        <p>
+	  A simplistic "Google Translate" for Angstrom to Bohr and Bohr to
+          Angstrom conversion.  Whatever (space separated) numbers you type or paste in
+          there get converted preserving the (im)precision.  You can paste in entire xyz
+          files. You can also abuse this page to convert other data using other
+          conversion factors.
+        </p>
       </div>
 
       <div class="row">
         <div class="col-md-6">
-          <h3>Type or paste text block in Angstrom</h3>
-          <textarea ng-model="angstrom" ng-change="change()" rows="15" cols="60"></textarea>
+          <h4>Conversion factor</h4>
+          <input ng-model="factor" ng-change="change()" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Type or paste text block in Angstrom</h4>
+          <textarea ng-model="angstrom" ng-change="change()" rows="10" cols="60"></textarea>
         </div>
         <div class="col-md-6">
-          <h3>Result in Bohr</h3>
+          <h4>Result in Bohr</h4>
           <pre>{{angstrom|convert : 1.0/factor}}</pre><br>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
-          <h3>Type or paste text block in Bohr</h3>
-          <textarea ng-model="bohr" ng-change="change()" rows="15" cols="60"></textarea>
+          <h4>Type or paste text block in Bohr</h4>
+          <textarea ng-model="bohr" ng-change="change()" rows="10" cols="60"></textarea>
         </div>
         <div class="col-md-6">
-          <h3>Result in Angstrom</h3>
+          <h4>Result in Angstrom</h4>
           <pre>{{bohr|convert : factor}}</pre><br>
         </div>
       </div>
@@ -53,6 +65,17 @@
     </div>
 
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">
+        Copyright (c) 2015, <a href="http://bast.fr">Radovan Bast</a>.
+        All rights reserved.
+        Privacy: All data you enter stays between you and your browser.
+      </p>
+    </div>
+  </footer>
+
 </body>
 
 </html>
