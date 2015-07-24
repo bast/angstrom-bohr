@@ -57,11 +57,31 @@
                 return convertNumbers(input, factor);
             };
         })
-        .controller('mycontroller', ['$scope', function($scope) {
+        .controller('mycontroller', ['$scope', '$http', function($scope, $http) {
             $scope.angstrom = '';
             $scope.bohr = '';
             $scope.factor = 0.52917721067;
-        }]);
+            $scope.getGitInfo = function() {
+                $scope.loaded = false;
+                $http.get("https://api.github.com/repos/bast/angstrom-bohr/git/refs/heads/gh-pages")
+                    .success(function(data) {
+                        $scope.last_sha = data.object.sha;
+                        $scope.last_sha_short = data.object.sha.substring(0, 8);
+                        $http.get("https://api.github.com/repos/bast/angstrom-bohr/commits/" + $scope.last_sha)
+                            .success(function(data) {
+                                $scope.name = data.commit.author.name;
+                                $scope.user = data.author.login;
+                                $http.get("https://api.github.com/users/" + $scope.user)
+                                    .success(function(data) {
+                                        $scope.html_url = data.html_url;
+                                        $scope.avatar_url = data.avatar_url;
+                                        $scope.loaded = true;
+                                    })
+                            })
+                    })
+            }
+            $scope.getGitInfo();
 
+        }]);
 
 })(window.angular);

@@ -23,10 +23,10 @@
     <div class="container">
 
       <div class="page-header">
-        <h1>Angstrom to Bohr and Bohr to Angstrom conversion without commercials</h1>
+        <h1>Angstrom to Bohr and Bohr to Angstrom conversion</h1>
         <p>
 	  A simplistic "Google Translate" for Angstrom to Bohr and Bohr to
-          Angstrom conversion.  Whatever (space separated) numbers you type or paste in
+          Angstrom conversion page without commercials.  Whatever (space separated) numbers you type or paste in
           there get converted preserving the (im)precision.  You can paste in entire xyz
           files. You can also abuse this page to convert other data using other
           conversion factors.
@@ -64,18 +64,25 @@
 
     </div>
 
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+          <div ng-show="loaded">
+            Version:
+            <a href="https://github.com/bast/angstrom-bohr/commit/{{last_sha}}" target="_blank">{{last_sha_short}}</a>
+            <!--
+            <a href="{{html_url}}" target="_blank">
+              <img src="{{avatar_url}}" width="20" height="20" alt="{{name}}"></a>
+            -->
+          </div>
+          Copyright (c) 2015, <a href="http://bast.fr">Radovan Bast</a>.
+          All rights reserved.
+          Privacy: All data you enter stays between you and your browser.
+        </p>
+      </div>
+    </footer>
+
   </div>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted">
-        Copyright (c) 2015, <a href="http://bast.fr">Radovan Bast</a>.
-        All rights reserved.
-        Privacy: All data you enter stays between you and your browser.
-      </p>
-    </div>
-  </footer>
-
 </body>
 
 </html>
