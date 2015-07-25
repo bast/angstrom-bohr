@@ -67,17 +67,17 @@
                     .success(function(data) {
                         $scope.last_sha = data.object.sha;
                         $scope.last_sha_short = data.object.sha.substring(0, 8);
-                        $http.get("https://api.github.com/repos/bast/angstrom-bohr/commits/" + $scope.last_sha)
-                            .success(function(data) {
-                                $scope.name = data.commit.author.name;
-                                $scope.user = data.author.login;
-                                $http.get("https://api.github.com/users/" + $scope.user)
-                                    .success(function(data) {
-                                        $scope.html_url = data.html_url;
-                                        $scope.avatar_url = data.avatar_url;
+                      //$http.get("https://api.github.com/repos/bast/angstrom-bohr/commits/" + $scope.last_sha)
+                      //    .success(function(data) {
+                      //        $scope.name = data.commit.author.name;
+                      //        $scope.user = data.author.login;
+                      //        $http.get("https://api.github.com/users/" + $scope.user)
+                      //            .success(function(data) {
+                      //                $scope.html_url = data.html_url;
+                      //                $scope.avatar_url = data.avatar_url;
                                         $scope.loaded = true;
-                                    })
-                            })
+                      //            })
+                      //    })
                     })
             }
             $scope.getGitInfo();
