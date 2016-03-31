@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/license-%20BSD--3-blue.svg)](../master/LICENSE)
+
+
 # angstrom-bohr
 
 A simplistic "Google Translate" for Angstrom to Bohr and Bohr to Angstrom
